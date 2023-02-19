@@ -55,36 +55,6 @@ Entradas e Saídas de capital.
     Como usuário quero poder transferir um saldo de um caixa para outro.
     Como usuário eu quero poder identificar de maneira clara o saldo em cada caixa e o saldo total.
 
-### Vídeo demonstrativo da planilha
-
-[Link demonstrativo planilha](https://www.youtube.com/watch?v=VHBTOPMkRiE)
-
-## Wireframe do projeto
-
-[Veja no Figma](https://www.figma.com/proto/szD8Gs6el1sBSCTcyjPtub/modelagem-controle-financeiro?node-id=21%3A1111&scaling=scale-down)
-
-![imagem](./readme/wireframe.png 'imagem')
-
-## Demo animada
-
-Gif do protótipo feito no figma
-
-[![figma](./readme/demo.gif 'figma')](https://www.figma.com/proto/szD8Gs6el1sBSCTcyjPtub/modelagem-controle-financeiro?node-id=21%3A1111&scaling=scale-down 'figma')
-
-## Event Storm
-
-[Veja no Figma](https://www.figma.com/proto/szD8Gs6el1sBSCTcyjPtub/modelagem-controle-financeiro?node-id=1%3A445&scaling=min-zoom)
-
-![imagem](./readme/event-storm.png 'imagem')
-
-## Playlist Youtube
-
-O desenvolvimento deste projeto foi gravado e disponibilizado no youtube
-
-[Acesse no Youtube](https://www.youtube.com/watch?v=nhgBqKxFIiw&list=PLUxrX6EvA-2ZRQokZDXHp-uXQUFWmoaJ7)
-
-[![youtube](./readme/youtube-icon.gif 'youtube')](https://www.youtube.com/watch?v=nhgBqKxFIiw&list=PLUxrX6EvA-2ZRQokZDXHp-uXQUFWmoaJ7 'playlist youtube')
-
 ## Domain Driven Design
 
 Arquivos padrões em typescript para iniciar um projeto usando DDD. Inspirado nos princípios de [Domain Driven Design](https://khalilstemmler.com/articles/categories/domain-driven-design/).
