@@ -1,0 +1,7 @@
+export * from './aggregates/userAggregate'
+export * from './valueObjects/emailValueObject'
+export * from './valueObjects/passwordValueObject'
+export * from './valueObjects/termsValueObject'
+export * from './valueObjects/userIdValueObject'
+export * from './valueObjects/termsObject/acceptAtValueObject'
+export * from './valueObjects/termsObject/ipValueObject'

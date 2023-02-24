@@ -1,7 +1,7 @@
 // O mesmo que type IValueObjectProps = { [index: string]: any }
 type IValueObjectProps = Record<string, any>
 export abstract class ValueObject<T extends IValueObjectProps> {
-  public props: T
+  protected props: T
 
   public constructor (props: T) {
     const baseProps: any = { ...props }

@@ -2,26 +2,32 @@ export class Result<T> {
   public isSuccess: boolean
   public isFailure: boolean
   public error: T | string
-  #_value: T
+  private _value: T
 
   public constructor (isSuccess: boolean, error?: T | string | null, value?: T) {
-    if (isSuccess && error) throw new Error('InvalidOperation: A result cannot be succeful and contain an error')
-    if (!isSuccess && !error) throw new Error('InvalidOperation: A failin result needs to contain an error message')
+    if (isSuccess && error) {
+      throw new Error(
+        'InvalidOperation: A result cannot be successful and contain an error',
+      );
+    }
+    if (!isSuccess && !error) {
+      throw new Error(
+        'InvalidOperation: A failing result needs to contain an error message',
+      );
+    }
 
-    this.isSuccess = isSuccess
-    this.isFailure = !isSuccess
-    this.error = error as T
-    this.#_value = value as T
-
-    Object.freeze(this)
+    this.isSuccess = isSuccess;
+    this.isFailure = !isSuccess;
+    this.error = error as T;
+    this._value = value as T;
+    Object.freeze(this);
   }
 
   public getResult (): T {
     if (!this.isSuccess) {
-      console.log(this.error)
       throw new Error('Can not get the value of an error result. Use errorValue instead.')
     }
-    return this.#_value
+    return this._value
   }
 
   public errorValue (): T {
