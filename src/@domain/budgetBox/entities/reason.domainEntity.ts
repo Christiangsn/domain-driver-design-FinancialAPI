@@ -7,6 +7,8 @@ export class ReasonDomainEntity extends Entity<IReasonDomainEntityProps> {
     super(props, id)
   }
 
+  public get id (): UniqueEntityID { return this._id }
+  public get description (): BudgetDescriptionValueObject { return this.props.description }
   public static create (props: IReasonDomainEntityProps, id?: UniqueEntityID): Result<ReasonDomainEntity> {
     return Result.ok<ReasonDomainEntity>(new ReasonDomainEntity(props, id))
   }
