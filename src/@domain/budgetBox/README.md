@@ -22,10 +22,12 @@
 ```javascript
     BudgetBox: Aggregate Root
 
+    id: 
     ownerId: 
     description: Objecto de valor - OK
     balanceAvaliable: 
     isPercentual: Objecto de valor - OK
+    budgetPercentage: Objecto de valor - OK
     transactionsIds: 
-    reasons: Entity[]
+    reasons: Entity Objecto de valor - OK
 ```
