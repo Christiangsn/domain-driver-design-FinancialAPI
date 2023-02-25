@@ -25,7 +25,7 @@
     ownerId: 
     description: Objecto de valor - OK
     balanceAvaliable: 
-    isPercentual: ip: 
+    isPercentual: Objecto de valor - OK
     transactionsIds: 
     reasons: Entity[]
 ```

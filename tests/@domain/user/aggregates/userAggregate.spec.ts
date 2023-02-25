@@ -1,14 +1,13 @@
-import { UniqueEntityID } from '@domain/shared';
-import { Result } from './../../../../src/@domain/shared/result';
-import { AggregateRoot } from "@domain/shared/aggregateRoot"
-import { AcceptAtValueObject, EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from "@domain/user"
+import { UniqueEntityID } from '@domain/shared'
+import { type Result } from '@domain/shared/result'
+import { AcceptAtValueObject, EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
 
 describe('UserAggregate', () => {
   const fakeEmail: string = 'john@domain.com'
-  const fakePassword: string= '12345'
+  const fakePassword: string = '12345'
   const fakeBugetBoxIds: string[] = ['validId01', 'validId02', 'validId03']
-  const fakeTotaBalance: number = 0 
-  const fakeTerms: { acceptedAt: Date, ip: string, userAgent: { name: string, version: string, os: "LINUX" | "MACOS" | "WINDOWS" | "IOS" | "IPHONE" | "MACINTOSH" | "ANDROID" | "IPAD", type: string } } = {
+  const fakeTotaBalance: number = 0
+  const fakeTerms: { acceptedAt: Date, ip: string, userAgent: { name: string, version: string, os: 'LINUX' | 'MACOS' | 'WINDOWS' | 'IOS' | 'IPHONE' | 'MACINTOSH' | 'ANDROID' | 'IPAD', type: string } } = {
     acceptedAt: new Date(),
     ip: '127.0.0.1',
     userAgent: {
@@ -18,7 +17,7 @@ describe('UserAggregate', () => {
       type: 'browser'
     }
   }
-  
+
   let valueEmail: EmailValueObject
   let valuePassword: PasswordValueObject
   let valueBudgetBoxIds: string[]
@@ -40,12 +39,12 @@ describe('UserAggregate', () => {
   })
 
   it('Should create a valid user', () => {
-    userAggregate = UserAggregate.create({ email: valueEmail, password: valuePassword, terms: valueTermsValueObject, totalBalanceAvaliable: valueTotalBalance, budgetBoxIds: valueBudgetBoxIds }) 
+    userAggregate = UserAggregate.create({ email: valueEmail, password: valuePassword, terms: valueTermsValueObject, totalBalanceAvaliable: valueTotalBalance, budgetBoxIds: valueBudgetBoxIds })
     expect(userAggregate.isSuccess).toBe(true)
   })
 
   it('Should get valid values', () => {
-    userAggregate = UserAggregate.create({ email: valueEmail, password: valuePassword, terms: valueTermsValueObject, totalBalanceAvaliable: valueTotalBalance, budgetBoxIds: valueBudgetBoxIds }) 
+    userAggregate = UserAggregate.create({ email: valueEmail, password: valuePassword, terms: valueTermsValueObject, totalBalanceAvaliable: valueTotalBalance, budgetBoxIds: valueBudgetBoxIds })
 
     const user = userAggregate.getResult()
     expect(user.id).toBeDefined()
@@ -67,8 +66,7 @@ describe('UserAggregate', () => {
   })
 
   it('Should create a valid user with provided id', () => {
-    userAggregate = UserAggregate.create({ email: valueEmail, password: valuePassword, terms: valueTermsValueObject, totalBalanceAvaliable: valueTotalBalance, budgetBoxIds: valueBudgetBoxIds }, new UniqueEntityID('valid_id')) 
+    userAggregate = UserAggregate.create({ email: valueEmail, password: valuePassword, terms: valueTermsValueObject, totalBalanceAvaliable: valueTotalBalance, budgetBoxIds: valueBudgetBoxIds }, new UniqueEntityID('valid_id'))
     expect(userAggregate.getResult().id.toValue()).toBe('valid_id')
   })
 })
-

@@ -1,1 +1,2 @@
-export * from './valueObjects/descriptionValueObject'
+export * from './valueObjects/budgetDescriptionValueObject'
+export * from './valueObjects/budgetPercentageValueObject'
