@@ -31,5 +31,8 @@
   },
   "engines": {
     "node": "18.x"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13"
   }
 }

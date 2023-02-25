@@ -5,12 +5,14 @@
     "skipLibCheck": true,
     "sourceMap": true,   // Configurações de DEBUG e Depurar Arquivos - TARGETS
     "esModuleInterop": true,
+    "module": "CommonJS",
     "forceConsistentCasingInFileNames": true, // Checkagem de importações para suporte a todas as plataformas - TARGETS
     "moduleResolution": "node", // Importar arquivos de uma pasta ou arquivo diretamente - MODULOS
-    "module": "commonjs", // Transformar importações de import para Require para o node entender - MODULOS
     "baseUrl": "./src",
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
+    "declaration": true,
+    "removeComments": true,
     "paths":{
         "@main/*": ["@main/*"],
         "@domain/*": ["@domain/*"],
@@ -18,10 +20,6 @@
         "@infra/*": ["@infra/*"],
         "@app/*": ["@app/*"]
     },
-    // "strictNullChecks": true,  // Habilita warning de possiveis erros com parametros nulos ou undefined em funções e classes - TIPAGEM
-    // "strictFunctionTypes": true, // Habilitar warning de contratos de interfaces com funções ou classes - TIPAGEM
-    // "strictPropertyInitialization": true, // Obrigar inicializar todas as variaveis de uma classe
-    // "noImplicitAny": true  // Impedir que qualquer varíavel seja any
     "strict": true // Atalho para abrir propriedades do TS de todos
   },
   "include": ["src", "tests"],
