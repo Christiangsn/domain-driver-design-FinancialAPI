@@ -6,7 +6,7 @@ import {  UniqueEntityID } from './uniqueEntityID'
 export abstract class AggregateRoot<T> extends Entity<any> {
   private _domainEvents: IDomainEvent[] = [];
 
-  public get id(): UniqueEntityID {
+  public get id (): UniqueEntityID {
     return this._id;
   }
 

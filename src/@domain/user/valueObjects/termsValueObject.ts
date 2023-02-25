@@ -27,7 +27,7 @@ type ITermsValueObject = {
 }
 
 export class TermsValueObject extends ValueObject<ITermsValueObject> {
-  private constructor (protected readonly props: ITermsValueObject) {
+  private constructor (props: ITermsValueObject) {
     super(props)
   }
 

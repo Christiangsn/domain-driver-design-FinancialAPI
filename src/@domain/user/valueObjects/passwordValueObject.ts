@@ -4,7 +4,7 @@ type IPasswordValueObjectProps = {
   value: string
 }
 export class PasswordValueObject extends ValueObject<IPasswordValueObjectProps> {
-  private constructor (protected readonly props: IPasswordValueObjectProps) {
+  private constructor (props: IPasswordValueObjectProps) {
     super(props)
   }
 

@@ -14,7 +14,7 @@ type IUserAggregateProps = {
 }
 
 export class UserAggregate extends AggregateRoot<IUserAggregateProps> {
-  private constructor (protected readonly props: IUserAggregateProps, id?: UniqueEntityID) {
+  private constructor (props: IUserAggregateProps, id?: UniqueEntityID) {
     super(props, id)
   }
 

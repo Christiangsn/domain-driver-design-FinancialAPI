@@ -35,7 +35,7 @@ Usuário - Agregado Raiz
 ## Structure
 
 ```javascript
-    USER: Aggregate Root 
+    USER: Aggregate Root - OK
 
     id: Objecto de valor - OK
     email: Objecto de valor - OK
