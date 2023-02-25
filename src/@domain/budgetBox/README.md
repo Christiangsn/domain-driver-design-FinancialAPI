@@ -22,7 +22,7 @@
 ```javascript
     BudgetBox: Aggregate Root
 
-    id: 
+    id: Objecto de valor - OK
     ownerId: 
     description: Objecto de valor - OK
     balanceAvaliable: 
