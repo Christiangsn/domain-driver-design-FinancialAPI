@@ -1,3 +1,4 @@
+import { BudgetIdValueObject } from '@domain/budgetBox'
 import { UniqueEntityID } from '@domain/shared'
 import { type Result } from '@domain/shared/result'
 import { AcceptAtValueObject, EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
@@ -5,7 +6,11 @@ import { AcceptAtValueObject, EmailValueObject, IpValueObject, PasswordValueObje
 describe('UserAggregate', () => {
   const fakeEmail: string = 'john@domain.com'
   const fakePassword: string = '12345'
-  const fakeBugetBoxIds: string[] = ['validId01', 'validId02', 'validId03']
+  const fakeBugetBoxIds: BudgetIdValueObject[] = [
+    BudgetIdValueObject.create(new UniqueEntityID('validId01')).getResult(),
+    BudgetIdValueObject.create(new UniqueEntityID('validId02')).getResult(),
+    BudgetIdValueObject.create(new UniqueEntityID('validId03')).getResult()
+  ]
   const fakeTotaBalance: number = 0
   const fakeTerms: { acceptedAt: Date, ip: string, userAgent: { name: string, version: string, os: 'LINUX' | 'MACOS' | 'WINDOWS' | 'IOS' | 'IPHONE' | 'MACINTOSH' | 'ANDROID' | 'IPAD', type: string } } = {
     acceptedAt: new Date(),
@@ -20,7 +25,7 @@ describe('UserAggregate', () => {
 
   let valueEmail: EmailValueObject
   let valuePassword: PasswordValueObject
-  let valueBudgetBoxIds: string[]
+  let valueBudgetBoxIds: BudgetIdValueObject[]
   let valueTotalBalance: number
   let valueTermsValueObject: TermsValueObject[]
 
