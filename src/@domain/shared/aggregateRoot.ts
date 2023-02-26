@@ -1,10 +1,12 @@
 /* eslint-disable @typescript-eslint/prefer-readonly */
+import { type BaseDomainEntity } from './baseDomainEntity'
 import { Entity } from './domainEntity'
 import { type IDomainEvent } from './events/IDomainEvent'
 import { DomainEvents } from './events/domainEvents'
 import { type UniqueEntityID } from './uniqueEntityID'
 
-export abstract class AggregateRoot<T> extends Entity<any> {
+type DomainExtends<T> = T & BaseDomainEntity
+export abstract class AggregateRoot<T> extends Entity<DomainExtends<T>> {
   private _domainEvents: IDomainEvent[] = []
 
   public get id (): UniqueEntityID {
