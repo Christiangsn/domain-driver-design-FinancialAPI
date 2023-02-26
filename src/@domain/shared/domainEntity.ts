@@ -10,7 +10,7 @@ export abstract class Entity<T extends BaseDomainEntity> {
   protected readonly props: T
 
   public constructor (props: T, id?: UniqueEntityID) {
-    this._id = id ? id : new UniqueEntityID()
+    this._id = id || new UniqueEntityID()
     this.props = props
   }
 

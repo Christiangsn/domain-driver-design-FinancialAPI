@@ -1,26 +1,26 @@
 export class Result<T> {
-  public isSuccess: boolean
-  public isFailure: boolean
-  public error: T | string
+  public readonly isSuccess: boolean
+  public readonly isFailure: boolean
+  public readonly error: T | string
   private _value: T
 
   public constructor (isSuccess: boolean, error?: T | string | null, value?: T) {
     if (isSuccess && error) {
       throw new Error(
-        'InvalidOperation: A result cannot be successful and contain an error',
-      );
+        'InvalidOperation: A result cannot be successful and contain an error'
+      )
     }
     if (!isSuccess && !error) {
       throw new Error(
-        'InvalidOperation: A failing result needs to contain an error message',
-      );
+        'InvalidOperation: A failing result needs to contain an error message'
+      )
     }
 
-    this.isSuccess = isSuccess;
-    this.isFailure = !isSuccess;
-    this.error = error as T;
-    this._value = value as T;
-    Object.freeze(this);
+    this.isSuccess = isSuccess
+    this.isFailure = !isSuccess
+    this.error = error as T
+    this._value = value as T
+    Object.freeze(this)
   }
 
   public getResult (): T {
