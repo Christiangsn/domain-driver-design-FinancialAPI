@@ -23,11 +23,8 @@
     BudgetBox: Aggregate Root
 
     id: Objecto de valor - OK
-    ownerId: 
     description: Objecto de valor - OK
-    balanceAvaliable: 
     isPercentual: Objecto de valor - OK
     budgetPercentage: Objecto de valor - OK
-    transactionsIds: 
     reasons: Entity Objecto de valor - OK
 ```
