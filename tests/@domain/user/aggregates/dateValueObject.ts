@@ -1,7 +1,8 @@
+import { DateCommonValueObject } from '../../../../src/@domain/shared/common/dateCommonValueObject'
 import { BudgetIdValueObject } from '@domain/budgetBox'
-import { UniqueEntityID } from '@domain/shared'
-import { type Result } from '@domain/shared/result'
-import { AcceptAtValueObject, EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
+import { UniqueEntityID } from '@domain/shared/core'
+import { type Result } from '@domain/shared/core/result'
+import { EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
 
 describe('UserAggregate', () => {
   const fakeEmail: string = 'john@domain.com'
@@ -37,7 +38,7 @@ describe('UserAggregate', () => {
     valueBudgetBoxIds = fakeBugetBoxIds
     valueTotalBalance = fakeTotaBalance
     valueTermsValueObject = [TermsValueObject.create({
-      acceptedAt: AcceptAtValueObject.create(fakeTerms.acceptedAt).getResult(),
+      acceptedAt: DateCommonValueObject.create(fakeTerms.acceptedAt).getResult(),
       ip: IpValueObject.create(fakeTerms.ip).getResult(),
       userAgent: fakeTerms.userAgent
     }).getResult()]

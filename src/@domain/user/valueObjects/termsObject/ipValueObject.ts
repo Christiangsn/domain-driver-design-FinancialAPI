@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '@domain/shared'
+import { Result, ValueObject } from '@domain/shared/core'
 
 type IIpValueObjectProps = { value: string }
 

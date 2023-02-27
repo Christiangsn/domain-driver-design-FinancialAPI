@@ -1,5 +1,5 @@
-import { Result, type UniqueEntityID } from '@domain/shared'
-import { AggregateRoot } from '@domain/shared/aggregateRoot'
+import { Result, type UniqueEntityID } from '@domain/shared/core'
+import { AggregateRoot } from '@domain/shared/core/aggregateRoot'
 import { type UserIdValueObject } from '@domain/user'
 import { BudgetPercentageValueObject, type BudgetDescriptionValueObject, type ReasonDomainEntity } from '..'
 

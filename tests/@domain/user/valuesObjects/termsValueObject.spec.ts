@@ -1,7 +1,7 @@
 /* eslint-disable no-sequences */
 /* eslint-disable @typescript-eslint/no-unused-expressions */
 /* eslint-disable @typescript-eslint/no-confusing-void-expression */
-import { AcceptAtValueObject } from '@domain/user/valueObjects/termsObject/acceptAtValueObject'
+import { DateCommonValueObject } from '@domain/shared/common'
 import { IpValueObject } from '@domain/user/valueObjects/termsObject/ipValueObject'
 import { type OS, TermsValueObject } from '@domain/user/valueObjects/termsValueObject'
 
@@ -21,12 +21,12 @@ import { type OS, TermsValueObject } from '@domain/user/valueObjects/termsValueO
 
 describe('TermValueObject', () => {
   let ip: IpValueObject
-  let acceptedAt: AcceptAtValueObject
+  let acceptedAt: DateCommonValueObject
   let userAgent: { name: string, version: string, os: keyof typeof OS, type: string }
 
   beforeEach(() => {
     ip = IpValueObject.create('123.123.123.123').getResult(),
-    acceptedAt = AcceptAtValueObject.create(new Date()).getResult(),
+    acceptedAt = DateCommonValueObject.create(new Date()).getResult(),
     userAgent = {
       name: 'firefox',
       version: '86.0.0',

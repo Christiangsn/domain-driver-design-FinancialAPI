@@ -1,6 +1,6 @@
-import { type AcceptAtValueObject } from '@domain/user/valueObjects/termsObject/acceptAtValueObject'
 import { type IpValueObject } from '@domain/user/valueObjects/termsObject/ipValueObject'
-import { Result, ValueObject } from '@domain/shared'
+import { Result, ValueObject } from '@domain/shared/core'
+import { type DateCommonValueObject } from '..'
 
 export enum OS {
   LINUX = 'LINUX',
@@ -22,7 +22,7 @@ type IUserAgent = {
 
 type ITermsValueObject = {
   ip: IpValueObject
-  acceptedAt: AcceptAtValueObject
+  acceptedAt: DateCommonValueObject
   userAgent: IUserAgent
 }
 

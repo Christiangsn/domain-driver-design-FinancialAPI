@@ -1,5 +1,5 @@
 import { BudgetReasonDescriptionValueObject, ReasonDomainEntity } from '@domain/budgetBox'
-import { UniqueEntityID } from '@domain/shared'
+import { UniqueEntityID } from '@domain/shared/core'
 
 describe('Reason.domainEntity', () => {
   it('Should create a valid reason entity', () => {

@@ -1,4 +1,4 @@
-import { Result, ValueObject } from '@domain/shared'
+import { Result, ValueObject } from '@domain/shared/core'
 
 type IBudgetReasonDescriptionValueObjectProps = { value: string }
 export class BudgetReasonDescriptionValueObject extends ValueObject<IBudgetReasonDescriptionValueObjectProps> {

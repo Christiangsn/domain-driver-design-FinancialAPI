@@ -1,5 +1,5 @@
 import { type BudgetDescriptionValueObject } from './../valueObjects/budgetDescriptionValueObject'
-import { type BaseDomainEntity, Entity, Result, type UniqueEntityID } from '@domain/shared'
+import { type BaseDomainEntity, Entity, Result, type UniqueEntityID } from '@domain/shared/core'
 
 type IReasonDomainEntityProps = { description: BudgetDescriptionValueObject } & BaseDomainEntity
 export class ReasonDomainEntity extends Entity<IReasonDomainEntityProps> {

@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
-import { Result, ValueObject } from '@domain/shared'
+import { Result, ValueObject } from '@domain/shared/core'
 
-type IAcceptValueObjectProps = { value: Date }
+type IDateCommonProps = { value: Date }
 
-export class AcceptAtValueObject extends ValueObject<IAcceptValueObjectProps> {
-  private constructor (props: IAcceptValueObjectProps) {
+export class DateCommonValueObject extends ValueObject<IDateCommonProps> {
+  private constructor (props: IDateCommonProps) {
     super(props)
   }
 
@@ -21,9 +21,9 @@ export class AcceptAtValueObject extends ValueObject<IAcceptValueObjectProps> {
     return dateStr as unknown as Date
   }
 
-  public static create (date: Date): Result<AcceptAtValueObject> {
+  public static create (date: Date): Result<DateCommonValueObject> {
     // Validation typeof Date
-    if (!(date instanceof Date && !isNaN(date.valueOf()))) return Result.fail<AcceptAtValueObject>('Invalid Date')
-    return Result.ok<AcceptAtValueObject>(new AcceptAtValueObject({ value: date }))
+    if (!(date instanceof Date && !isNaN(date.valueOf()))) return Result.fail<DateCommonValueObject>('Invalid Date')
+    return Result.ok<DateCommonValueObject>(new DateCommonValueObject({ value: date }))
   }
 }

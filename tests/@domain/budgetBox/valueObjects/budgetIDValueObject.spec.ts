@@ -1,5 +1,5 @@
 import { BudgetIdValueObject } from '@domain/budgetBox'
-import { UniqueEntityID } from '@domain/shared'
+import { UniqueEntityID } from '@domain/shared/core'
 
 describe('budgetId.value-object', () => {
   it('should create a valid budgetId', () => {

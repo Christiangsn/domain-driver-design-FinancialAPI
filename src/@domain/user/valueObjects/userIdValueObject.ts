@@ -1,5 +1,5 @@
-import { type UniqueEntityID } from './../../shared/uniqueEntityID'
-import { Entity, Result } from '@domain/shared'
+import { type UniqueEntityID } from '../../shared/core/uniqueEntityID'
+import { Entity, Result } from '@domain/shared/core'
 
 export class UserIdValueObject extends Entity<any> {
   private constructor (id?: UniqueEntityID) {

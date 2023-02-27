@@ -1,4 +1,4 @@
-import { Result, Entity, type UniqueEntityID } from '@domain/shared'
+import { Result, Entity, type UniqueEntityID } from '@domain/shared/core'
 
 export class ReasonIdValueObject extends Entity<any> {
   private constructor (id?: UniqueEntityID) {

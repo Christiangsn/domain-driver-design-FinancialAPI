@@ -1,10 +1,10 @@
 import { type BudgetIdValueObject } from '@domain/budgetBox'
-import { type UniqueEntityID } from './../../shared/uniqueEntityID'
-import { AggregateRoot } from '@domain/shared/aggregateRoot'
+import { type UniqueEntityID } from '../../shared/core/uniqueEntityID'
+import { AggregateRoot } from '@domain/shared/core/aggregateRoot'
 import { type EmailValueObject } from '../valueObjects/emailValueObject'
 import { type PasswordValueObject } from '../valueObjects/passwordValueObject'
 import { type TermsValueObject } from '../valueObjects/termsValueObject'
-import { Result } from '@domain/shared'
+import { Result } from '@domain/shared/core'
 
 type IUserAggregateProps = {
   email: EmailValueObject
