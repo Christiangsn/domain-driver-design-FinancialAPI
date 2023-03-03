@@ -1,3 +1,4 @@
+import { ErrorMessages } from '@domain/shared/common/errors'
 import { Result, ValueObject } from '@domain/shared/core'
 
 enum EnumValidTransactionType {
@@ -15,7 +16,7 @@ export class TransactionTypeValueObject extends ValueObject<ITransactioNTypeValu
   public get value (): IValidTransactionType { return this.props.value.toUpperCase() as IValidTransactionType }
   public static create (type: IValidTransactionType): Result<TransactionTypeValueObject> {
     const isValidEnumValue = Object.values(EnumValidTransactionType).includes(type.toUpperCase())
-    if (!isValidEnumValue) return Result.fail<TransactionTypeValueObject>('Invalid option')
+    if (!isValidEnumValue) return Result.fail<TransactionTypeValueObject>(ErrorMessages.TRANSACTION_INVALID_TYPE_ENUM_TRANSACTION)
     return Result.ok<TransactionTypeValueObject>(new TransactionTypeValueObject({ value: type }))
   }
 }

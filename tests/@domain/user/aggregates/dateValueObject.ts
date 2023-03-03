@@ -1,4 +1,4 @@
-import { DateCommonValueObject } from '../../../../src/@domain/shared/common/dateCommonValueObject'
+import { DateCommonValueObject } from '../../../../src/@domain/shared/common/valueObjects/dateCommonValueObject'
 import { BudgetIdValueObject } from '@domain/budgetBox'
 import { UniqueEntityID } from '@domain/shared/core'
 import { type Result } from '@domain/shared/core/result'

@@ -28,4 +28,4 @@
 - note: Value Object - OK
 - Attachment: Value Object - OK
 - paymentDate: Value Object - OK
-- calculations: Value Object
+- calculations: Value Object - OK

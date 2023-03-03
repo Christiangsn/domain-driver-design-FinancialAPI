@@ -1,3 +1,4 @@
+import { ErrorMessages } from '@domain/shared/common/errors'
 import { Result, ValueObject } from '@domain/shared/core'
 
 type IAttachmentValueObject = { value: string }
@@ -13,7 +14,7 @@ export class AttachmentValueObject extends ValueObject<IAttachmentValueObject> {
   public static create (path: string): Result<AttachmentValueObject> {
     const isValidUrl = this.#isURlRegex.test(path)
     const isValidDirectory = this.#isValidDirectoryRegex.test(path)
-    if (!isValidUrl && !isValidDirectory) return Result.fail<AttachmentValueObject>('Invalid Url')
+    if (!isValidUrl && !isValidDirectory) return Result.fail<AttachmentValueObject>(ErrorMessages.TRANSACTION_INVALID_ATTACHMENT_PATH)
     return Result.ok<AttachmentValueObject>(new AttachmentValueObject({ value: path }))
   }
 }
