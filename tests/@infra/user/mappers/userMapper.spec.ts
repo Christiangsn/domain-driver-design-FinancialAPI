@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/restrict-plus-operands */
-import { BudgetIdValueObject } from '@domain/budgetBox'
 import { UniqueEntityID } from '@domain/shared/core'
 import { DateCommonValueObject, EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
 import { type User } from '@infra/user/entities/userSchema'
@@ -20,11 +19,6 @@ describe('UserMapper', () => {
       {
         email: EmailValueObject.create('valid_mail@domain.com').getResult(),
         password: PasswordValueObject.create('valid_password').getResult(),
-        totalBalanceAvaliable: 0,
-        budgetBoxIds: [
-          BudgetIdValueObject.create(new UniqueEntityID('valid_id_1')).getResult(),
-          BudgetIdValueObject.create(new UniqueEntityID('valid_id_2')).getResult()
-        ],
         terms: [
           TermsValueObject.create({
             acceptedAt: DateCommonValueObject.create(currentDate).getResult(),
@@ -45,7 +39,6 @@ describe('UserMapper', () => {
 
     // Create persistence user
     persistence = {
-      budgetBoxIds: ['valid_id_1', 'valid_id_2'],
       createdAt: new Date(currentDate),
       email: 'valid_mail@domain.com',
       id: 'valid_id',
@@ -62,7 +55,6 @@ describe('UserMapper', () => {
           }
         }
       ],
-      totalBalanceAvaliable: 0,
       updatedAt: currentDate
     }
   })
