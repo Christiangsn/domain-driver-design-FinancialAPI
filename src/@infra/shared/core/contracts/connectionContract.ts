@@ -13,9 +13,9 @@ import { type IFilterInterface } from './genericContractRepository'
  * @method find:
  * @method orm:
  */
-export interface IConnectionContract<TargetEntity, ORM> {
+export interface IConnectionContract<TargetEntity> {
   save: (entity: TargetEntity) => Promise<void | TargetEntity>
   delete: (id: string) => Promise<void | TargetEntity>
   find: (filter: IFilterInterface) => Promise<TargetEntity[] | null>
-  orm: () => ORM
+  // orm: () => ORM
 }

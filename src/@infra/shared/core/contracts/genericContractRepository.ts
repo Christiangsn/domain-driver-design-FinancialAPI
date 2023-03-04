@@ -9,10 +9,10 @@ export type IFilterInterface = Record<string, string | number>
    * @example ORM return method types `findOne` `finMany` ...
    *
    */
-export interface IGenericRepositoryContract< TargetPersistence, DomainAggregate, ORM > {
+export interface IGenericRepositoryContract< TargetPersistence, DomainAggregate > {
   save: (entity: TargetPersistence) => Promise<void>
   delete: (id: string) => Promise<void>
   find: (filter: IFilterInterface) => Promise<DomainAggregate[] | null>
   exist: (filter: IFilterInterface) => Promise<boolean>
-  orm: () => ORM
+  // orm: () => ORM
 }

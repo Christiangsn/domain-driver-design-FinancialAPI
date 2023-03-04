@@ -1,8 +1,7 @@
 import { compareSync, hashSync } from 'bcrypt'
 
 import { Result, ValueObject } from '@domain/shared/core'
-import { IDomainPasswordContract, IPasswordValueObjectProps } from '../contracts'
-
+import { type IDomainPasswordContract, type IPasswordValueObjectProps } from '../contracts'
 
 export class PasswordValueObject extends ValueObject<IPasswordValueObjectProps> implements IDomainPasswordContract {
   #isEncrypted: boolean
@@ -19,7 +18,7 @@ export class PasswordValueObject extends ValueObject<IPasswordValueObjectProps> 
     return PasswordValueObject.#isEncryptPassword.test(this.props.value)
   }
 
-  public async encryptPassword(): Promise<void> { 
+  public async encryptPassword (): Promise<void> {
     this.props.value = hashSync(this.props.value, 10)
     this.#isEncrypted = true
   }
