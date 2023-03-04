@@ -2,9 +2,10 @@ import { DateCommonValueObject } from '@domain/shared/common'
 
 describe('AcceptAtValueObject', () => {
   it('Should create a valid acceptance date', () => {
-    const acceptAt = DateCommonValueObject.create(new Date('2022-01-02 10:00:00'))
+    const datenow = new Date('2022-01-02 10:00:00')
+    const acceptAt = DateCommonValueObject.create(datenow)
     expect(acceptAt.isSuccess).toBe(true)
-    expect(acceptAt.getResult().value).toBe('01-02-2022 10:00:00')
+    expect(acceptAt.getResult().value).toBe(datenow)
   })
 
   it('Should fail if provide an invalid Date', () => {
