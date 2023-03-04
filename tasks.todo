@@ -43,18 +43,46 @@
 ☐ Move balance avaliable value from a box to another use case DTO
 ☐ Move balance avaliable value from a box to another use case
 
+#TASKS TODO INFRA ENTITY INTERFACES
+✔ User interface @started(21-05-02 13:32) @done(03-03-2023 13:47) @lasted(15m35s)
+☐ Budget box interface
+☐ Transaction interface
+
 #TASKS TODO MAPPER
-☐ User mapper
+☐ User mapper @started(03-03-2023 13:56)
 ☐ Budget box mapper
 ☐ Transaction mapper 
 
 #TASKS TODO REPOSITORY 
-☐ User repository 
+☐ User repository
 ☐ Budget box repository
 ☐ Transaction repository
 
 #TASKS TODO SCHEMAS 
-☐ User schema 
+✔ User schema @done(03-03-2023 13:49)
 ☐ Transaction schema
 ☐ Budget box reason schema
 ☐ Budget box schema
+
+#Configs
+✔ Install mongoose nest/mongoose @done(03-03-2023 13:30)
+✔ Refactor error message apply correct grammar @done(21-05-02 13:25)
+
+#Nest Modules 
+☐ Create user module 
+☐ Create user service
+☐ Create user graphql schema 
+☐ Create user mutation
+☐ Create user resolver
+
+☐ Create budgetBox module 
+☐ Create budgetBox service
+☐ Create budgetBox graphql schema 
+☐ Create budgetBox mutation
+☐ Create budgetBox resolver
+
+☐ Create transaction module 
+☐ Create transaction service
+☐ Create transaction graphql schema 
+☐ Create transaction mutation
+☐ Create transaction resolver
