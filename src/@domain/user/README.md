@@ -5,8 +5,6 @@ Usuário - Agregado Raiz
     "id": "uuid",
     "email": "johnjoe@test.com",
     "password": "123456",
-    "budgetBoxIds": ["uuid", "uuid"],
-    "totalBalanceAvaliable": 10.00,
     "terms": [
         {
             "ip": "120.06.09.011",
