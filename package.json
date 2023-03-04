@@ -35,7 +35,9 @@
     "node": "18.x"
   },
   "dependencies": {
+    "@nestjs/mongoose": "^9.2.1",
     "bcrypt": "^5.1.0",
+    "mongoose": "^7.0.0",
     "reflect-metadata": "^0.1.13"
   }
 }
