@@ -1,12 +1,14 @@
-import { IpValueObject } from '@domain/user/valueObjects/termsObject/ipValueObject'
-import { type ISignUpDTO } from './signupDTO'
-import { DateCommonValueObject, EmailValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
-import { Result } from '@domain/shared/core'
+/* eslint-disable  */
+
+import { DateCommonValueObject, EmailValueObject, IpValueObject, PasswordValueObject, TermsValueObject, UserAggregate } from '@domain/user'
 import { type IUserRepositoryContract } from '@domain/contracts/repositories/userRepository.contract'
-import { useCases } from '@application/useCases/default'
 import { type IHttpResponse } from '@application/contracts/app.contracts'
-import { BadRequest } from '@application/helpers/badRequest'
-import { Success } from '@application/helpers/success'
+import { useCases } from '@application/useCases/default'
+import { Result } from '@domain/shared/core'
+
+import { type ISignUpDTO } from './signupDTO'
+
+import { BadRequest, Success } from '@application/helpers'
 
 /**
  * @event
@@ -52,7 +54,7 @@ export class SignupUseCases extends useCases<ISignUpDTO> {
     if (termsOrError.isFailure) return BadRequest(termsOrError.error.toString())
 
     const password = passwordOrError.getResult()
-    await password.encryptPassword()
+    void await password.encryptPassword()
     // Validar o usuário agregado e retornar erro caso ocorra um erro
     const userOrError: Result<UserAggregate> = UserAggregate.create({
       email: emailOrError.getResult(),
@@ -67,7 +69,7 @@ export class SignupUseCases extends useCases<ISignUpDTO> {
 
     // Salvar usuario
     const user = userOrError.getResult()
-    await this.userRepository.save(user)
+    void await this.userRepository.save(user)
 
     return Success(null)
   }
