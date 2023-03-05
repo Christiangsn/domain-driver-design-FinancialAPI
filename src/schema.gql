@@ -1,0 +1,37 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type UserAgentType {
+  name: String!
+  version: String!
+  os: OS!
+  type: String!
+}
+
+enum OS {
+  LINUX
+  MACOS
+  WINDOWS
+  IOS
+  IPHONE
+  MACINTOSH
+  ANDROID
+  IPAD
+}
+
+type TermType {
+  ip: String!
+  acceptedAt: String!
+  userAgentType: UserAgentType!
+}
+
+type UserType {
+  id: ID
+  terms: [TermType!]
+  email: String
+}
+
+type Query {
+  users: [UserType!]!
+}
