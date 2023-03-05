@@ -4,8 +4,8 @@
 ☐ Transaction repository interface
 
 #TASKS TODO USECASES  
-☐ Signup use case DTO
-☐ Signup use case
+✔ Signup use case DTO @started(04-03-2023) @done(04-03-2023) @lasted(10min)
+☐ Signup use case @started(04-03-2023)
 ☐ Sigin use case DTO
 ☐ Sigin use case
 ☐ Block user use case DTO
@@ -66,14 +66,14 @@
 
 #Configs
 ✔ Install mongoose nest/mongoose @done(03-03-2023 13:30)
-✔ Refactor error message apply correct grammar @done(21-05-02 13:25)
+✔ Refactor error message apply correct grammar @done(03-03-2023 13:25)
 
 #Nest Modules 
-☐ Create user module 
+✔ Create user module @done(05-03-2023)
 ☐ Create user service
-☐ Create user graphql schema 
+✔  Create user graphql schema @started(04-03-2023)
 ☐ Create user mutation
-☐ Create user resolver
+✔ Create user resolver @started(05-03-2023)
 
 ☐ Create budgetBox module 
 ☐ Create budgetBox service
