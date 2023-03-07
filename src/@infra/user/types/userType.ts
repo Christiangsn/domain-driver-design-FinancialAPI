@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { TermType } from './termType'
 import { Field, ID, ObjectType } from '@nestjs/graphql'
 
@@ -6,7 +7,7 @@ export class UserType {
   @Field(() => ID)
   public id!: string
 
-  @Field(() => [TermType], { nullable: true })
+  @Field(() => [TermType]!, { nullable: true })
   public terms!: TermType[]
 
   @Field(() => String)
