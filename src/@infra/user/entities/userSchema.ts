@@ -14,6 +14,7 @@ type ITermsTypes = {
   acceptedAt: Date
   userAgent: IUserAgent
 }
+export type UserDocument = User & Document
 
 @Schema({
   autoCreate: true,
@@ -40,5 +41,4 @@ export class User {
   public updatedAt!: Date
 }
 
-export type UserDocument = User & Document
 export const UserSchema = SchemaFactory.createForClass(User)
