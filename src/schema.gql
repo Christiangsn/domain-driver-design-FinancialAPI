@@ -23,15 +23,24 @@ enum OS {
 type TermType {
   ip: String!
   acceptedAt: String!
-  userAgentType: UserAgentType!
+  userAgent: UserAgentType!
 }
 
 type UserType {
-  id: ID
+  id: ID!
   terms: [TermType!]
-  email: String
+  email: String!
 }
 
 type Query {
   users: [UserType!]!
+}
+
+type Mutation {
+  signup(SignUpInput: SignUpInput!): Boolean!
+}
+
+input SignUpInput {
+  email: String!
+  password: String!
 }
