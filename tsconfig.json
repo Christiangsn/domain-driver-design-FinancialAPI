@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es2022", // Versão de Compilação do NODE - TARGETS
+    "target": "ES2022", // Versão de Compilação do NODE - TARGETS
     "outDir": "dist",  // Pasta para gerar a Build - TARGETS
     "skipLibCheck": true,
     "sourceMap": true,   // Configurações de DEBUG e Depurar Arquivos - TARGETS
