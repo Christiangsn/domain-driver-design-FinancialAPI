@@ -1,7 +1,6 @@
 import { SignupUseCases } from '@application/useCases/user/signup/signUpUseCases'
 import { type IUserRepositoryContract } from '@domain/contracts/repositories/userRepository.contract'
-import { Result } from '@domain/shared/core'
-import { UserAggregate, type OS } from '@domain/user'
+import { type OS } from '@domain/user'
 import { mock, type MockProxy } from 'jest-mock-extended'
 
 export interface IFakerDTO {
@@ -34,20 +33,20 @@ describe('SignUpUseCase', () => {
   }
 
   let userRepository: MockProxy<IUserRepositoryContract>
-  let signupUseCases: SignupUseCases
+  let sut: SignupUseCases
 
   beforeEach(() => {
     userRepository = mock()
-    signupUseCases = new SignupUseCases(userRepository)
+    sut = new SignupUseCases(userRepository)
   })
 
   it('Should be defined', () => {
-    expect(signupUseCases).toBeDefined()
+    expect(sut).toBeDefined()
   })
 
   it('Should return fails if not accept the terms', async () => {
     const fakerDTO = fakeDTO({ acceptedTerms: false })
-    const result = await signupUseCases.execute(fakerDTO)
+    const result = await sut.execute(fakerDTO)
     expect(result.isFailure).toBe(true)
     expect(result.isSuccess).toBe(false)
     expect(result.error).toBe('Terms should be accepted')
@@ -56,7 +55,7 @@ describe('SignUpUseCase', () => {
   it('Shpuld fails if user already exists for provided email', async () => {
     jest.spyOn(userRepository, 'exist').mockResolvedValueOnce(true)
     const fakerDTO = fakeDTO()
-    const result = await signupUseCases.execute(fakerDTO)
+    const result = await sut.run(fakerDTO)
 
     expect(userRepository.exist).toHaveBeenCalledWith({ email: fakerDTO.email })
     expect(userRepository.exist).toHaveBeenCalledTimes(1)
@@ -69,10 +68,18 @@ describe('SignUpUseCase', () => {
     jest.spyOn(userRepository, 'save').mockResolvedValueOnce()
 
     const fakerDTO = fakeDTO()
-    const result = await signupUseCases.execute(fakerDTO)
+    const result = await sut.run(fakerDTO)
 
     expect(userRepository.save).toHaveBeenCalledTimes(1)
     expect(result.isFailure).toBe(false)
     expect(result.isSuccess).toBe(true)
+  })
+
+  it('Should rethrow if methods IUserRepositoryContract throws', async () => {
+    userRepository.save.mockRejectedValueOnce(new Error('Failed in save user'))
+
+    const fakerDTO = fakeDTO()
+    const promise = sut.run(fakerDTO)
+    await expect(promise).rejects.toThrow(new Error('Failed in save user'))
   })
 })
