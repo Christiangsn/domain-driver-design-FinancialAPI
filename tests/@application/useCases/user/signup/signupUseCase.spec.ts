@@ -46,7 +46,7 @@ describe('SignUpUseCase', () => {
 
   it('Should return fails if not accept the terms', async () => {
     const fakerDTO = fakeDTO({ acceptedTerms: false })
-    const result = await sut.execute(fakerDTO)
+    const result = await sut.run(fakerDTO)
     expect(result.isFailure).toBe(true)
     expect(result.isSuccess).toBe(false)
     expect(result.error).toBe('Terms should be accepted')
@@ -55,7 +55,7 @@ describe('SignUpUseCase', () => {
   it('Shpuld fails if user already exists for provided email', async () => {
     jest.spyOn(userRepository, 'exist').mockResolvedValueOnce(true)
     const fakerDTO = fakeDTO()
-    const result = await sut.execute(fakerDTO)
+    const result = await sut.run(fakerDTO)
 
     expect(userRepository.exist).toHaveBeenCalledWith({ email: fakerDTO.email })
     expect(userRepository.exist).toHaveBeenCalledTimes(1)
@@ -68,7 +68,7 @@ describe('SignUpUseCase', () => {
     jest.spyOn(userRepository, 'save').mockResolvedValueOnce()
 
     const fakerDTO = fakeDTO()
-    const result = await sut.execute(fakerDTO)
+    const result = await sut.run(fakerDTO)
 
     expect(userRepository.save).toHaveBeenCalledTimes(1)
     expect(result.isFailure).toBe(false)
