@@ -3,6 +3,7 @@ import { Args, Mutation, Query, Resolver } from '@nestjs/graphql'
 import { UserType } from '../types/userType'
 import { UserService } from '../user.service'
 import { Inject, NotAcceptableException } from '@nestjs/common'
+import { IUserAgent, UserAgent } from '@infra/shared/decorators/userAgentDecorator'
 
 @Resolver(() => UserType)
 export class UserResolver {
@@ -32,18 +33,18 @@ export class UserResolver {
   }
 
   @Mutation(() => Boolean)
-  public async signup (@Args(SignUpInput.name) user: SignUpInput): Promise<boolean> {
-    if(!user.acceptedTerms) {
+  public async signup (@Args(SignUpInput.name) user: SignUpInput, @UserAgent() userAgent: IUserAgent): Promise<boolean> {
+    if (!user.acceptedTerms) {
       throw new NotAcceptableException('Terms should be accepted')
     }
     await this.userService.signup({
       ...user,
       ip: user.ip,
       userAgent: {
-        name: 'Mozilla/5.0',
-        os: 'LINUX' as any,
-        type: 'browser',
-        version: '86.01'
+        name: userAgent.name,
+        os: userAgent.os as any,
+        type: userAgent.type,
+        version: userAgent.version
       }
     })
     return true
