@@ -1,8 +1,7 @@
-import { Result } from '@domain/shared/core'
-
 import { SignupUseCases } from '@application/useCases/user/signup/signUpUseCases'
 import { type IUserRepositoryContract } from '@domain/contracts/repositories/userRepository.contract'
-import { type OS, UserAggregate } from '@domain/user'
+import { Result } from '@domain/shared/core'
+import { UserAggregate, type OS } from '@domain/user'
 import { mock, type MockProxy } from 'jest-mock-extended'
 
 export interface IFakerDTO {
@@ -63,5 +62,17 @@ describe('SignUpUseCase', () => {
     expect(userRepository.exist).toHaveBeenCalledTimes(1)
     expect(result.isFailure).toBe(true)
     expect(result.isSuccess).toBe(false)
+    expect(result.error).toBe('User already exist for provided email')
+  })
+
+  it('Should save user with success', async () => {
+    jest.spyOn(userRepository, 'save').mockResolvedValueOnce()
+
+    const fakerDTO = fakeDTO()
+    const result = await signupUseCases.execute(fakerDTO)
+
+    expect(userRepository.save).toHaveBeenCalledTimes(1)
+    expect(result.isFailure).toBe(false)
+    expect(result.isSuccess).toBe(true)
   })
 })
