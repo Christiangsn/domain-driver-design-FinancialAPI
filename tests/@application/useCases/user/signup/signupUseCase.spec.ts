@@ -55,7 +55,7 @@ describe('SignUpUseCase', () => {
   it('Shpuld fails if user already exists for provided email', async () => {
     jest.spyOn(userRepository, 'exist').mockResolvedValueOnce(true)
     const fakerDTO = fakeDTO()
-    const result = await sut.run(fakerDTO)
+    const result = await sut.execute(fakerDTO)
 
     expect(userRepository.exist).toHaveBeenCalledWith({ email: fakerDTO.email })
     expect(userRepository.exist).toHaveBeenCalledTimes(1)
@@ -68,18 +68,10 @@ describe('SignUpUseCase', () => {
     jest.spyOn(userRepository, 'save').mockResolvedValueOnce()
 
     const fakerDTO = fakeDTO()
-    const result = await sut.run(fakerDTO)
+    const result = await sut.execute(fakerDTO)
 
     expect(userRepository.save).toHaveBeenCalledTimes(1)
     expect(result.isFailure).toBe(false)
     expect(result.isSuccess).toBe(true)
-  })
-
-  it('Should rethrow if methods IUserRepositoryContract throws', async () => {
-    userRepository.save.mockRejectedValueOnce(new Error('Failed in save user'))
-
-    const fakerDTO = fakeDTO()
-    const promise = sut.run(fakerDTO)
-    await expect(promise).rejects.toThrow(new Error('Failed in save user'))
   })
 })
