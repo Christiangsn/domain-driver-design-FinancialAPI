@@ -41,7 +41,9 @@
 ☐ Unregister a "SAIDA" use case DTO
 ☐ Unregister a "SAIDA" use case
 ☐ Move balance avaliable value from a box to another use case DTO
-☐ Move balance avaliable value from a box to another use case
+✔  Move balance avaliable value from a box to another use case
+☐ GetUserAgent Decorator @started(07-05-2023) @done(07-05-2023) @lasted(40min)
+☐ AuthGuard Decorator
 
 #TASKS TODO INFRA ENTITY INTERFACES
 ✔ User interface @started(21-05-02 13:32) @done(03-03-2023 13:47) @lasted(15m35s)
