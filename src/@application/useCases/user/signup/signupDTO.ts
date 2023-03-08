@@ -4,10 +4,11 @@ export interface ISignUpDTO {
   email: string
   password: string
   ip: string
+  acceptedTerms: boolean
   userAgent: {
     name: string
     version: string
-    os: OS
+    os: keyof typeof OS
     type: string
   }
 }
