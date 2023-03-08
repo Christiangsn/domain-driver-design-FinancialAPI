@@ -5,11 +5,7 @@ import { type IUserRepositoryContract } from '@domain/contracts/repositories/use
 import { Result } from '@domain/shared/core'
 import { type ISignUpDTO } from './signupDTO'
 import { useCases } from '@application/useCases/useCases'
-import { Inject } from '@nestjs/common'
-
-export interface IUseCases<DTO, Return> {
-  run: (props: DTO) => Promise<Return>
-}
+import { Inject, NotAcceptableException } from '@nestjs/common'
 
 export class SignupUseCases extends useCases<ISignUpDTO> {
   public constructor (
@@ -17,9 +13,14 @@ export class SignupUseCases extends useCases<ISignUpDTO> {
     private readonly userRepository: IUserRepositoryContract
   ) { 
     super('SignUp')
-   }
+  }
 
   public async run (props: ISignUpDTO): Promise<Result<void>> {
+
+    if (!props.acceptedTerms) {
+      return Result.fail<void>('Terms should be accepted')
+    }
+
     // Validar os DTO e se ocorreu um erro retornar
     const emailOrError = EmailValueObject.create(props.email)
     const passwordOrError = PasswordValueObject.create(props.password)
