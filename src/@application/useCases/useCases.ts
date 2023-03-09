@@ -4,17 +4,7 @@ import { Result } from '@domain/shared/core'
 
 /**
  * @event
- *   Validar dados da request
- *  @event
- *   Criar instancia do domínio do usuário
- * @event
- *   Verificar se existem dados incorretos
- * @event
- *   Verificar se já existe um usuario com email informado
- * @event
- *   Salvar usuário
- * @event
- *   Retornar status de sucesso
+ *  All services implementes in the module this abstract class and interface
  */
 export abstract class useCases<DTO> implements IUseCases<DTO, Result<void>> {
   public abstract run (httpRequest: DTO): Promise<Result<void>>
