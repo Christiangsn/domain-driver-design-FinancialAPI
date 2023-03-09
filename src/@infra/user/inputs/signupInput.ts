@@ -8,9 +8,9 @@ export class SignUpInput {
   @Field(() => String)
   public password!: string
 
-  @Field(() => String!)
+  @Field(() => String)
   public ip!: string
 
-  @Field(() => Boolean!)
+  @Field(() => Boolean)
   public acceptedTerms!: boolean
 }

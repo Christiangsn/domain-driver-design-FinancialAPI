@@ -34,12 +34,11 @@ export class UserResolver {
 
   @Mutation(() => Boolean)
   public async signup (@Args(SignUpInput.name) user: SignUpInput, @UserAgent() userAgent: IUserAgent): Promise<boolean> {
-    if (!user.acceptedTerms) {
-      throw new NotAcceptableException('Terms should be accepted')
-    }
+
     await this.userService.signup({
       ...user,
       ip: user.ip,
+      acceptedTerms: user.acceptedTerms,
       userAgent: {
         name: userAgent.name,
         os: userAgent.os as any,
