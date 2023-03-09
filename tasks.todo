@@ -4,8 +4,10 @@
 ☐ Transaction repository interface
 
 #TASKS TODO USECASES  
+✔ Create abstract implementation use Case  @started(07-03-2023) @done(09-03-2023)
 ✔ Signup use case DTO @started(04-03-2023) @done(04-03-2023) @lasted(10min)
-☐ Signup use case @started(04-03-2023)
+☐ Signup use case @started(04-03-2023) @done(09-03-2023)
+✔  Signup use case test @started(07-03-2023)
 ☐ Sigin use case DTO
 ☐ Sigin use case
 ☐ Block user use case DTO
